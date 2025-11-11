@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Chat Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="toggle-container">
+        <button id="whatsapp-toggle" class="active">WhatsApp</button>
+        <button id="instagram-toggle">Instagram</button>
+    </div>
+
+    <div class="main-wrapper">
+
+        <div class="instructions-container">
+            <div id="whatsapp-instructions" class="active-mode">
+                <h2>How to Export WhatsApp Chat?</h2>
+                <p>Follow these steps to get the <strong>.txt</strong> file from WhatsApp:</p>
+                <ol>
+                    <li>Open the WhatsApp chat you want to analyze.</li>
+                    <li>Tap on the <strong>three dots</strong> (⋮) in the top-right corner.</li>
+                    <li>Select <strong>More</strong>.</li>
+                    <li>Tap on <strong>Export chat</strong>.</li>
+                    <li>A pop-up will appear. Choose <strong>WITHOUT MEDIA</strong>. This is important!</li>
+                    <li>Save or send the `.txt` file to your computer.</li>
+                </ol>
+                <p>Now, select that file using the button on your right.</p>
+            </div>
+
+            <div id="instagram-instructions" class="hidden-mode">
+                <h2>How to Export Instagram Chat?</h2>
+                <p>Follow these steps to get the <strong>JSON</strong> file from Instagram:</p>
+                <ol>
+                    <li>Go to your <strong>Profile</strong> &gt; <strong>Settings and privacy</strong> &gt;
+                        <strong>Account Center</strong>.</li>
+                    <li>Select <strong>Your information and permissions</strong> &gt; <strong>Download your
+                            information</strong>.</li>
+                    <li>Tap <strong>Request a download</strong> and select <strong>Messages</strong>.</li>
+                    <li>Choose <strong>JSON</strong> format (important for analysis).</li>
+                    <li>You will receive a <strong>ZIP file</strong> via email. Extract the `.json` files from it.</li>
+                </ol>
+                <p><strong>Note:</strong> Instagram exports data as <strong>JSON</strong>, not TXT. Your file must be a
+                    JSON file for analysis.</p>
+            </div>
+        </div>
+
+        <div class="analyzer-container">
+            <h1 id="analyzer-title">WhatsApp Chat Analyzer <i class="fa-brands fa-whatsapp"></i></h1>
+            <p id="analyzer-paragraph">Upload your exported WhatsApp .txt file to get insights.</p>
+
+            <input type="file" id="chatFile" accept=".txt">
+            <button id="analyzeBtn">Analyze Chat</button>
+
+            <div id="loader">Loading...</div>
+            <div id="error"></div>
+
+            <div id="results" style="display:none;">
+                <h2>Analysis Results</h2>
+                <div class="stat-card">
+                    <h3>Total Messages</h3>
+                    <p id="totalMessages"></p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Words</h3>
+                    <p id="totalWords"></p>
+                </div>
+                <div class="stat-card">
+                    <h3>Media Shared</h3>
+                    <p id="mediaMessages"></p>
+                </div>
+                <div class="stat-card">
+                    <h3>Most Active Users</h3>
+                    <ul id="topUsersList"></ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
